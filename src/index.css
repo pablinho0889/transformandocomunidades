@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 24 95% 53%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 24 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-ring: 24 95% 53%;
+
+    /* Custom tokens */
+    --glow-orange: 24 95% 53%;
+    --glow-amber: 36 100% 50%;
+    --surface-elevated: 0 0% 10%;
+    --gradient-primary: linear-gradient(135deg, hsl(24, 95%, 53%), hsl(36, 100%, 50%));
+    --shadow-glow: 0 0 60px -12px hsl(24 95% 53% / 0.4);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.6);
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(24, 95%, 53%), hsl(36, 100%, 50%));
+  }
+
+  .bg-gradient-primary {
+    background-image: linear-gradient(135deg, hsl(24, 95%, 53%), hsl(36, 100%, 50%));
+  }
+
+  .bg-gradient-dark {
+    background-image: linear-gradient(180deg, hsl(0, 0%, 4%) 0%, hsl(0, 0%, 8%) 50%, hsl(0, 0%, 4%) 100%);
+  }
+
+  .bg-hero-glow {
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(24 95% 53% / 0.15), transparent);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card-dark {
+    box-shadow: var(--shadow-card);
+  }
+
+  .border-glow {
+    border: 1px solid hsl(24 95% 53% / 0.2);
+  }
+
+  .mockup-shadow {
+    box-shadow: 0 25px 80px -20px hsl(0 0% 0% / 0.8), 0 0 40px -10px hsl(24 95% 53% / 0.15);
+  }
+
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-xl border border-border/50;
+  }
+
+  /* Cinematic utilities */
+  .cinematic-glow {
+    box-shadow:
+      0 0 80px -20px hsl(24 95% 53% / 0.3),
+      0 0 120px -40px hsl(36 100% 50% / 0.2),
+      inset 0 0 60px -30px hsl(24 95% 53% / 0.05);
+  }
+
+  .cinematic-card-hover {
+    box-shadow:
+      0 20px 60px -15px hsl(0 0% 0% / 0.7),
+      0 0 40px -10px hsl(24 95% 53% / 0.2);
+  }
+
+  .text-shimmer {
+    background: linear-gradient(
+      110deg,
+      hsl(24, 95%, 53%) 0%,
+      hsl(36, 100%, 50%) 45%,
+      hsl(24, 95%, 63%) 55%,
+      hsl(36, 100%, 50%) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: -200% 0; }
+}
+
+@keyframes aurora {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(100px, -50px) rotate(90deg) scale(1.2);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50px, 100px) rotate(180deg) scale(0.8);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(-100px, -100px) rotate(270deg) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 4%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 20%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(24, 95%, 53%);
+}
