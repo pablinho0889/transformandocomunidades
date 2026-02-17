@@ -117,7 +117,7 @@ const FeatureBlock = ({
                 whileHover={{ scale: 1.03, rotateY: reversed ? 4 : -4 }}
                 transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
               >
-                <div className="rounded-2xl overflow-hidden mockup-shadow border-glow relative">
+                <div className="rounded-2xl overflow-hidden mockup-shadow relative">
                   <img
                     src={mockupSrc}
                     alt={mockupAlt}

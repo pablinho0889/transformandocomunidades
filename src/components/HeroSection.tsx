@@ -141,7 +141,7 @@ const HeroSection = () => {
           transition={{ duration: 1.6, delay: 0.8, ease: easeOutExpo }}
           style={{ perspective: "1200px", y: mockupY, scale: mockupScale }}
         >
-          <div className="relative rounded-2xl overflow-hidden mockup-shadow border-glow">
+          <div className="relative rounded-2xl overflow-hidden mockup-shadow">
             <img
               src={heroMockup}
               alt="Transformando Comunidades Dashboard"
